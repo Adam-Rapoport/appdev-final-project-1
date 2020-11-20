@@ -16,4 +16,5 @@
 #  updated_at         :datetime         not null
 #
 class BuildingInstruction < ApplicationRecord
+  has_many(:buildings, { :class_name => "Building", :foreign_key => "building_type_id", :dependent => :destroy })
 end

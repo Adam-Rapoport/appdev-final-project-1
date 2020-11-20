@@ -1,6 +1,6 @@
 class PlayerAuthenticationController < ApplicationController
   # Uncomment this if you want to force players to sign in before any other actions
-  # skip_before_action(:force_player_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie] })
+  skip_before_action(:force_player_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie] })
 
   def sign_in_form
     render({ :template => "player_authentication/sign_in.html.erb" })

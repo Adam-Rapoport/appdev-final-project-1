@@ -9,4 +9,6 @@
 #  building_type_id :integer
 #
 class Building < ApplicationRecord
+  belongs_to(:builder, { :required => true, :class_name => "Player", :foreign_key => "builder_id", :counter_cache => true })
+  belongs_to(:building_type, { :required => true, :class_name => "BuildingInstruction", :foreign_key => "building_type_id", :counter_cache => true })
 end
