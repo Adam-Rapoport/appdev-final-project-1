@@ -1,0 +1,206 @@
+<div>
+  <div>
+    <h1>
+      Transaction #<%= @the_transaction.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/transactions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_transaction/<%= @the_transaction.id %>">
+          Delete transaction
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Sender
+      </dt>
+      <dd>
+        <%= @the_transaction.sender_id %>
+      </dd>
+
+      <dt>
+        Recipient
+      </dt>
+      <dd>
+        <%= @the_transaction.recipient_id %>
+      </dd>
+
+      <dt>
+        Steel offered
+      </dt>
+      <dd>
+        <%= @the_transaction.steel_offered %>
+      </dd>
+
+      <dt>
+        Clay offered
+      </dt>
+      <dd>
+        <%= @the_transaction.clay_offered %>
+      </dd>
+
+      <dt>
+        Grain offered
+      </dt>
+      <dd>
+        <%= @the_transaction.grain_offered %>
+      </dd>
+
+      <dt>
+        Steel requested
+      </dt>
+      <dd>
+        <%= @the_transaction.steel_requested %>
+      </dd>
+
+      <dt>
+        Clay requested
+      </dt>
+      <dd>
+        <%= @the_transaction.clay_requested %>
+      </dd>
+
+      <dt>
+        Grain requested
+      </dt>
+      <dd>
+        <%= @the_transaction.grain_requested %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_transaction.status %>
+      </dd>
+
+      <dt>
+        Greetings
+      </dt>
+      <dd>
+        <%= @the_transaction.greetings %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_transaction.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_transaction.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit transaction
+    </h2>
+
+    <form action="/modify_transaction/<%= @the_transaction.id %>"  method="post" >
+      <div>
+        <label for="sender_id_box">
+          Sender
+        </label>
+
+        <input type="text" id="sender_id_box" name="query_sender_id" value="<%= @the_transaction.sender_id %>">
+      </div>
+
+      <div>
+        <label for="recipient_id_box">
+          Recipient
+        </label>
+
+        <input type="text" id="recipient_id_box" name="query_recipient_id" value="<%= @the_transaction.recipient_id %>">
+      </div>
+
+      <div>
+        <label for="steel_offered_box">
+          Steel offered
+        </label>
+
+        <input type="text" id="steel_offered_box" name="query_steel_offered" value="<%= @the_transaction.steel_offered %>">
+      </div>
+
+      <div>
+        <label for="clay_offered_box">
+          Clay offered
+        </label>
+
+        <input type="text" id="clay_offered_box" name="query_clay_offered" value="<%= @the_transaction.clay_offered %>">
+      </div>
+
+      <div>
+        <label for="grain_offered_box">
+          Grain offered
+        </label>
+
+        <input type="text" id="grain_offered_box" name="query_grain_offered" value="<%= @the_transaction.grain_offered %>">
+      </div>
+
+      <div>
+        <label for="steel_requested_box">
+          Steel requested
+        </label>
+
+        <input type="text" id="steel_requested_box" name="query_steel_requested" value="<%= @the_transaction.steel_requested %>">
+      </div>
+
+      <div>
+        <label for="clay_requested_box">
+          Clay requested
+        </label>
+
+        <input type="text" id="clay_requested_box" name="query_clay_requested" value="<%= @the_transaction.clay_requested %>">
+      </div>
+
+      <div>
+        <label for="grain_requested_box">
+          Grain requested
+        </label>
+
+        <input type="text" id="grain_requested_box" name="query_grain_requested" value="<%= @the_transaction.grain_requested %>">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_transaction.status %>">
+      </div>
+
+      <div>
+        <label for="greetings_box">
+          Greetings
+        </label>
+
+        <textarea id="greetings_box" name="query_greetings"><%= @the_transaction.greetings %></textarea>
+      </div>
+
+      <button>
+        Update transaction
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

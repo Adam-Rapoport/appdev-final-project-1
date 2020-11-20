@@ -1,0 +1,64 @@
+<div >
+  <h5>
+    Edit Player Account
+  </h5>
+
+  <div>
+    <form action="/modify_player" method="post">
+      <div>
+        <label for="email_box">Email</label>
+        <input id="email_box" name="query_email" value="<%= @current_player.email %>">
+      </div>
+      <div>
+        <label for="name_box">Name</label>
+        <input id="name_box" name="query_name" value="<%= @current_player.name %>">
+      </div>
+      <div>
+        <label for="kingdom_box">Kingdom</label>
+        <input id="kingdom_box" name="query_kingdom" value="<%= @current_player.kingdom %>">
+      </div>
+      <div>
+        <label for="steel_amount_box">Steel amount</label>
+        <input id="steel_amount_box" name="query_steel_amount" value="<%= @current_player.steel_amount %>">
+      </div>
+      <div>
+        <label for="clay_amount_box">Clay amount</label>
+        <input id="clay_amount_box" name="query_clay_amount" value="<%= @current_player.clay_amount %>">
+      </div>
+      <div>
+        <label for="grain_amount_box">Grain amount</label>
+        <input id="grain_amount_box" name="query_grain_amount" value="<%= @current_player.grain_amount %>">
+      </div>
+      <div>
+        <label for="points_box">Points</label>
+        <input id="points_box" name="query_points" value="<%= @current_player.points %>">
+      </div>
+      <div>
+        <label for="buildings_count_box">Buildings count</label>
+        <input id="buildings_count_box" name="query_buildings_count" value="<%= @current_player.buildings_count %>">
+      </div>
+      <div>
+        <label for="sent_requests_count_box">Sent requests count</label>
+        <input id="sent_requests_count_box" name="query_sent_requests_count" value="<%= @current_player.sent_requests_count %>">
+      </div>
+      <div>
+        <label for="received_requests_count_box">Received requests count</label>
+        <input id="received_requests_count_box" name="query_received_requests_count" value="<%= @current_player.received_requests_count %>">
+      </div>
+
+      <div>
+        <label for="password_box">Password</label>
+        <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">
+      </div>
+    
+      <div>
+        <label for="password_confirmation_box">Password Confirmation</label>
+        <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
+      </div>
+
+      <button>
+        Update account
+      </button>
+    </form>
+  </div>
+</div>

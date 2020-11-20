@@ -1,0 +1,230 @@
+<div>
+  <div>
+    <h1>
+      List of all transactions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new transaction
+    </h2>
+
+    <form action="/insert_transaction" method="post">
+      <div>
+        <label for="sender_id_box">
+          Sender
+        </label>
+
+        <input type="text" id="sender_id_box" name="query_sender_id">
+      </div>
+
+      <div>
+        <label for="recipient_id_box">
+          Recipient
+        </label>
+
+        <input type="text" id="recipient_id_box" name="query_recipient_id">
+      </div>
+
+      <div>
+        <label for="steel_offered_box">
+          Steel offered
+        </label>
+
+        <input type="text" id="steel_offered_box" name="query_steel_offered">
+      </div>
+
+      <div>
+        <label for="clay_offered_box">
+          Clay offered
+        </label>
+
+        <input type="text" id="clay_offered_box" name="query_clay_offered">
+      </div>
+
+      <div>
+        <label for="grain_offered_box">
+          Grain offered
+        </label>
+
+        <input type="text" id="grain_offered_box" name="query_grain_offered">
+      </div>
+
+      <div>
+        <label for="steel_requested_box">
+          Steel requested
+        </label>
+
+        <input type="text" id="steel_requested_box" name="query_steel_requested">
+      </div>
+
+      <div>
+        <label for="clay_requested_box">
+          Clay requested
+        </label>
+
+        <input type="text" id="clay_requested_box" name="query_clay_requested">
+      </div>
+
+      <div>
+        <label for="grain_requested_box">
+          Grain requested
+        </label>
+
+        <input type="text" id="grain_requested_box" name="query_grain_requested">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status">
+      </div>
+
+      <div>
+        <label for="greetings_box">
+          Greetings
+        </label>
+
+        <textarea id="greetings_box" name="query_greetings" rows="3"></textarea>
+      </div>
+
+      <button>
+        Create transaction
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Sender
+        </th>
+
+        <th>
+          Recipient
+        </th>
+
+        <th>
+          Steel offered
+        </th>
+
+        <th>
+          Clay offered
+        </th>
+
+        <th>
+          Grain offered
+        </th>
+
+        <th>
+          Steel requested
+        </th>
+
+        <th>
+          Clay requested
+        </th>
+
+        <th>
+          Grain requested
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+          Greetings
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_transactions.each do |a_transaction| %>
+      <tr>
+        <td>
+          <%= a_transaction.id %>
+        </td>
+
+        <td>
+          <%= a_transaction.sender_id %>
+        </td>
+
+        <td>
+          <%= a_transaction.recipient_id %>
+        </td>
+
+        <td>
+          <%= a_transaction.steel_offered %>
+        </td>
+
+        <td>
+          <%= a_transaction.clay_offered %>
+        </td>
+
+        <td>
+          <%= a_transaction.grain_offered %>
+        </td>
+
+        <td>
+          <%= a_transaction.steel_requested %>
+        </td>
+
+        <td>
+          <%= a_transaction.clay_requested %>
+        </td>
+
+        <td>
+          <%= a_transaction.grain_requested %>
+        </td>
+
+        <td>
+          <%= a_transaction.status %>
+        </td>
+
+        <td>
+          <%= a_transaction.greetings %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_transaction.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_transaction.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/transactions/<%= a_transaction.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

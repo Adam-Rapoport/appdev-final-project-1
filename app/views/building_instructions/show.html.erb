@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Building instruction #<%= @the_building_instruction.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/building_instructions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_building_instruction/<%= @the_building_instruction.id %>">
+          Delete building instruction
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Building type name
+      </dt>
+      <dd>
+        <%= @the_building_instruction.building_type_name %>
+      </dd>
+
+      <dt>
+        Points value
+      </dt>
+      <dd>
+        <%= @the_building_instruction.points_value %>
+      </dd>
+
+      <dt>
+        Steel cost
+      </dt>
+      <dd>
+        <%= @the_building_instruction.steel_cost %>
+      </dd>
+
+      <dt>
+        Clay cost
+      </dt>
+      <dd>
+        <%= @the_building_instruction.clay_cost %>
+      </dd>
+
+      <dt>
+        Grain cost
+      </dt>
+      <dd>
+        <%= @the_building_instruction.grain_cost %>
+      </dd>
+
+      <dt>
+        Steel drop prob
+      </dt>
+      <dd>
+        <%= @the_building_instruction.steel_drop_prob %>
+      </dd>
+
+      <dt>
+        Clay drop prob
+      </dt>
+      <dd>
+        <%= @the_building_instruction.clay_drop_prob %>
+      </dd>
+
+      <dt>
+        Grain drop prob
+      </dt>
+      <dd>
+        <%= @the_building_instruction.grain_drop_prob %>
+      </dd>
+
+      <dt>
+        Buildings count
+      </dt>
+      <dd>
+        <%= @the_building_instruction.buildings_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_building_instruction.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_building_instruction.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit building instruction
+    </h2>
+
+    <form action="/modify_building_instruction/<%= @the_building_instruction.id %>"  method="post" >
+      <div>
+        <label for="building_type_name_box">
+          Building type name
+        </label>
+
+        <input type="text" id="building_type_name_box" name="query_building_type_name" value="<%= @the_building_instruction.building_type_name %>">
+      </div>
+
+      <div>
+        <label for="points_value_box">
+          Points value
+        </label>
+
+        <input type="text" id="points_value_box" name="query_points_value" value="<%= @the_building_instruction.points_value %>">
+      </div>
+
+      <div>
+        <label for="steel_cost_box">
+          Steel cost
+        </label>
+
+        <input type="text" id="steel_cost_box" name="query_steel_cost" value="<%= @the_building_instruction.steel_cost %>">
+      </div>
+
+      <div>
+        <label for="clay_cost_box">
+          Clay cost
+        </label>
+
+        <input type="text" id="clay_cost_box" name="query_clay_cost" value="<%= @the_building_instruction.clay_cost %>">
+      </div>
+
+      <div>
+        <label for="grain_cost_box">
+          Grain cost
+        </label>
+
+        <input type="text" id="grain_cost_box" name="query_grain_cost" value="<%= @the_building_instruction.grain_cost %>">
+      </div>
+
+      <div>
+        <label for="steel_drop_prob_box">
+          Steel drop prob
+        </label>
+
+        <input type="text" id="steel_drop_prob_box" name="query_steel_drop_prob" value="<%= @the_building_instruction.steel_drop_prob %>">
+      </div>
+
+      <div>
+        <label for="clay_drop_prob_box">
+          Clay drop prob
+        </label>
+
+        <input type="text" id="clay_drop_prob_box" name="query_clay_drop_prob" value="<%= @the_building_instruction.clay_drop_prob %>">
+      </div>
+
+      <div>
+        <label for="grain_drop_prob_box">
+          Grain drop prob
+        </label>
+
+        <input type="text" id="grain_drop_prob_box" name="query_grain_drop_prob" value="<%= @the_building_instruction.grain_drop_prob %>">
+      </div>
+
+      <div>
+        <label for="buildings_count_box">
+          Buildings count
+        </label>
+
+        <input type="text" id="buildings_count_box" name="query_buildings_count" value="<%= @the_building_instruction.buildings_count %>">
+      </div>
+
+      <button>
+        Update building instruction
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

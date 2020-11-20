@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all buildings
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new building
+    </h2>
+
+    <form action="/insert_building" method="post">
+      <div>
+        <label for="building_type_id_box">
+          Building type
+        </label>
+
+        <input type="text" id="building_type_id_box" name="query_building_type_id">
+      </div>
+
+      <div>
+        <label for="builder_id_box">
+          Builder
+        </label>
+
+        <input type="text" id="builder_id_box" name="query_builder_id">
+      </div>
+
+      <button>
+        Create building
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Building type
+        </th>
+
+        <th>
+          Builder
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_buildings.each do |a_building| %>
+      <tr>
+        <td>
+          <%= a_building.id %>
+        </td>
+
+        <td>
+          <%= a_building.building_type_id %>
+        </td>
+
+        <td>
+          <%= a_building.builder_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_building.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_building.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/buildings/<%= a_building.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
