@@ -44,57 +44,43 @@
 </div>
 <div>
   <div>
-    <table>
+    <table class="table">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Building type
         </th>
 
         <th>
-          Builder
+          House lord
         </th>
 
         <th>
-          Created at
+          Built at
         </th>
 
         <th>
-          Updated at
+          Points value
         </th>
 
-        <th>
-        </th>
       </tr>
 
       <% @list_of_buildings.each do |a_building| %>
       <tr>
+
         <td>
-          <%= a_building.id %>
+          <%= a_building.building_type.building_type_name.capitalize %>
         </td>
 
         <td>
-          <%= a_building.building_type_id %>
-        </td>
-
-        <td>
-          <%= a_building.builder_id %>
+          Sir placeholder
         </td>
 
         <td>
           <%= time_ago_in_words(a_building.created_at) %> ago
         </td>
         <td>
-          <%= time_ago_in_words(a_building.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/buildings/<%= a_building.id %>">
-            Show details
-          </a>
+          <%= a_building.building_type.points_value %> points!
         </td>
       </tr>
       <% end %>
