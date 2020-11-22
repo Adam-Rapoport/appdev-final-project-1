@@ -16,11 +16,11 @@
             Where to?
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a href="/transactions" class="dropdown-item">
-              Trade resources
-            </a>
             <a href="/buildings" class="dropdown-item">
               Expand your kingdom
+            </a>
+            <a href="/transactions" class="dropdown-item">
+              Trade resources
             </a>
             <a href="/leaderboard" class="dropdown-item">
               View leaderboard
@@ -31,10 +31,24 @@
           </div>
         </li>
       </ul>
-      sdfsdfa
+
     </div> <!-- .navbar-collapse -->
+<%@p = Player.where({ :id => session[:player_id] }).first%>
+
 <button type="button" class="btn btn-primary">
-  Notifications <span class="badge badge-light">4</span>
+  Steel <span class="badge badge-light"><%=@p.steel_amount%></span>
+</button>
+ -
+<button type="button" class="btn btn-primary" > 
+  Clay <span class="badge badge-light"><%=@p.clay_amount%></span>
+</button>
+-
+<button type="button" class="btn btn-primary" > 
+  Grain <span class="badge badge-light"><%=@p.grain_amount%></span>
+</button>
+-
+<button type="button" class="btn btn-primary" > 
+  Points <span class="badge badge-light"><%=@p.points%></span>
 </button>
   </div> <!-- .container -->
 </nav>
