@@ -13,23 +13,32 @@
     <h2>
       Expand your kingdom, build something:
     </h2>
-#### Make proper form ####
+
     <form action="/insert_building" method="post">
-      <div>
+      <%# <div>
         <label for="building_type_id_box">
           Building type
         </label>
 
         <input type="text" id="building_type_id_box" name="query_building_type_id">
-      </div>
+      </div> %>
 
-      <div>
+      <select class="custom-select" name="query_building_type_id" id="building_type_id_box">
+        <option selected>Select building</option>
+        <% for @building_types.each do |building_type|%>
+        <option value="<%=building_type.id%>"> Build a <%=building_type.building_type_name%> 
+        for <%=building_type.clay_cost%> clay, <%=building_type.grain_cost%> grain and <%=building_type.steel_cost%> steel 
+        </option>
+        <%end%>
+      </select>
+
+      <%# <div>
         <label for="builder_id_box">
           Builder
         </label>
 
         <input type="text" id="builder_id_box" name="query_builder_id">
-      </div>
+      </div> %>
 
       <button>
         Create building

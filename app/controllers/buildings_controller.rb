@@ -5,7 +5,7 @@ class BuildingsController < ApplicationController
     #matching_buildings = Building.where({ :builder_id => session[:player_id] })
 
     @list_of_buildings = matching_buildings.order({ :created_at => :desc })
-
+    @building_types = BuildingInstruction.all.order({:id => :asc})
     render({ :template => "buildings/index.html.erb" })
   end
 
