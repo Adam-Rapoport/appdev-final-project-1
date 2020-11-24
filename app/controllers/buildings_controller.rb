@@ -25,10 +25,25 @@ class BuildingsController < ApplicationController
     the_building.builder_id = session[:player_id]
 
     if the_building.valid? # and have enough resources
-      the_building.save
+      the_building.save # add building
+
+      # update resources and points
+
+      new_steel = the_building.builder.steel_amount - the_building.building_type.steel_cost
+      the_building.builder.update_attribute(:steel_amount, new_steel)
+
+      new_grain = the_building.builder.grain_amount - the_building.building_type.grain_cost
+      the_building.builder.update_attribute(:grain_amount, new_grain)
+
+      new_clay = the_building.builder.clay_amount - the_building.building_type.clay_cost
+      the_building.builder.update_attribute(:clay_amount, new_clay)
+
+      new_points = the_building.builder.points + the_building.building_type.points_value
+      the_building.builder.update_attribute(:points, new_points)
+
       redirect_to("/buildings", { :notice => "A #{the_building.building_type.building_type_name} was built successfully!" })
     else
-      redirect_to("/buildings", { :notice => "Not enough resources!" })
+      redirect_to("/buildings", { :notice => "Faild to build a #{the_building.building_type.building_type_name}!" })
     end
   end
 
