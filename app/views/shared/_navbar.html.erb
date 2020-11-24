@@ -35,20 +35,22 @@
     </div> <!-- .navbar-collapse -->
 <%@p = Player.where({ :id => session[:player_id] }).first%>
 
+<% if @p != nil %>
 <button type="button" class="btn btn-primary">
-  Steel <span class="badge badge-light"><%=@p.steel_amount%></span>
+  Steel <span class="badge badge-light"> <%=@p.steel_amount%>   </span>
 </button>
  -
 <button type="button" class="btn btn-primary" > 
-  Clay <span class="badge badge-light"><%=@p.clay_amount%></span>
+  Clay <span class="badge badge-light"><%=@p.clay_amount%> </span>
 </button>
 -
 <button type="button" class="btn btn-primary" > 
-  Grain <span class="badge badge-light"><%=@p.grain_amount%></span>
+  Grain <span class="badge badge-light"><%=@p.grain_amount%> </span>
 </button>
 -
 <button type="button" class="btn btn-primary" > 
-  Points <span class="badge badge-light"><%=@p.points%></span>
+  Points <span class="badge badge-light"> <%=@p.points%> </span>
 </button>
+<%end%>
   </div> <!-- .container -->
 </nav>
