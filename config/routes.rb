@@ -47,7 +47,7 @@ Rails.application.routes.draw do
           
   # READ
 
-  get("/", { :controller => "buildings", :action => "index" })
+  get("/", { :controller => "buildings", :action => "home" })
 
   get("/buildings", { :controller => "buildings", :action => "index" })
   

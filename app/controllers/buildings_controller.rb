@@ -70,4 +70,10 @@ class BuildingsController < ApplicationController
 
     redirect_to("/buildings", { :notice => "Building deleted successfully."} )
   end
+
+  def home
+    @player = Player.where({ :id => session[:player_id] }).first
+    render({ :template => "home/home.html.erb" })
+  end
+
 end
