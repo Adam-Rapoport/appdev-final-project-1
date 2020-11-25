@@ -10,18 +10,34 @@
 
 <div>
   <div>
-    <h2>
-      Add a new transaction
-    </h2>
+    <h3>
+      Send a new trade request
+    </h3>
+
 
     <form action="/insert_transaction" method="post">
-      <div>
-        <label for="sender_id_box">
-          Sender
-        </label>
 
-        <input type="text" id="sender_id_box" name="query_sender_id">
-      </div>
+      <select name="query_recipient_id" id="recipient_id_box">
+        <option selected>Select player to trade with </option>
+        <% @players.each do |a_player|%>
+        <option value="<%=a_player.id%>"> Trade with <%=a_player.name%>  
+        </option>
+        <% end %>
+      </select>
+
+
+
+
+      <%# <button>
+        Build!
+      </button>
+    </form> %>
+
+
+
+
+
+    <%# <form action="/insert_transaction" method="post">
 
       <div>
         <label for="recipient_id_box">
@@ -29,7 +45,7 @@
         </label>
 
         <input type="text" id="recipient_id_box" name="query_recipient_id">
-      </div>
+      </div> %>
 
       <div>
         <label for="steel_offered_box">
@@ -79,24 +95,24 @@
         <input type="text" id="grain_requested_box" name="query_grain_requested">
       </div>
 
-      <div>
+      <%# <div>
         <label for="status_box">
           Status
-        </label>
+        </label> %>
 
-        <input type="text" id="status_box" name="query_status">
-      </div>
+        <%# <input type="text" id="status_box" name="query_status">
+      </div> %>
 
       <div>
         <label for="greetings_box">
-          Greetings
+          Greet your recipient
         </label>
 
         <textarea id="greetings_box" name="query_greetings" rows="3"></textarea>
       </div>
 
       <button>
-        Create transaction
+        Send transaction request
       </button>
     </form>
   </div>
