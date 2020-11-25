@@ -3,6 +3,8 @@ class TransactionsController < ApplicationController
     matching_transactions = Transaction.all
 
     @list_of_transactions = matching_transactions.order({ :created_at => :desc })
+
+    @the_player = Player.where({ :id => session[:player_id] }).first
     @players = Player.all.order({:id => :asc})
     render({ :template => "transactions/index.html.erb" })
   end

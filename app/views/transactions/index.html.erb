@@ -25,50 +25,22 @@
         <% end %>
       </select>
 
-
-
-
-      <%# <button>
-        Build!
-      </button>
-    </form> %>
-
-
-
-
-
-    <%# <form action="/insert_transaction" method="post">
-
       <div>
-        <label for="recipient_id_box">
-          Recipient
-        </label>
-
-        <input type="text" id="recipient_id_box" name="query_recipient_id">
-      </div> %>
-
-      <div>
-        <label for="steel_offered_box">
-          Steel offered
-        </label>
-
-        <input type="text" id="steel_offered_box" name="query_steel_offered">
+        <label for="steel_offered_box"> Steel offered </label>
+        <input type="range" class="custom-range" min="0" max="<%=@the_player.steel_amount%>" id="steel_offered_box" name="query_steel_offered" oninput="this.nextElementSibling.value = this.value">
+        <output></output>
       </div>
 
       <div>
-        <label for="clay_offered_box">
-          Clay offered
-        </label>
-
-        <input type="text" id="clay_offered_box" name="query_clay_offered">
+        <label for="clay_offered_box"> Clay offered </label>
+        <input type="range" class="custom-range" min="0" max="<%=@the_player.clay_amount%>" id="clay_offered_box" name="query_clay_offered" oninput="this.nextElementSibling.value = this.value">
+        <output></output>
       </div>
 
       <div>
-        <label for="grain_offered_box">
-          Grain offered
-        </label>
-
-        <input type="text" id="grain_offered_box" name="query_grain_offered">
+        <label for="grain_offered_box"> Grain offered </label>
+        <input type="range" class="custom-range" min="0" max="<%=@the_player.grain_amount%>" id="grain_offered_box" name="query_grain_offered" oninput="this.nextElementSibling.value = this.value">
+        <output></output>
       </div>
 
       <div>
@@ -94,14 +66,6 @@
 
         <input type="text" id="grain_requested_box" name="query_grain_requested">
       </div>
-
-      <%# <div>
-        <label for="status_box">
-          Status
-        </label> %>
-
-        <%# <input type="text" id="status_box" name="query_status">
-      </div> %>
 
       <div>
         <label for="greetings_box">
