@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   post("/modify_transaction/:path_id", { :controller => "transactions", :action => "update" })
   
   # DELETE
-  get("/delete_transaction/:path_id", { :controller => "transactions", :action => "destroy" })
+  # get("/delete_transaction/:path_id", { :controller => "transactions", :action => "destroy" })
+
+  get("/accept_transaction/:path_id", { :controller => "transactions", :action => "accept" })
+  get("/reject_transaction/:path_id", { :controller => "transactions", :action => "reject" })
+  get("/cancel_transaction/:path_id", { :controller => "transactions", :action => "cancel" })
 
   #------------------------------
 

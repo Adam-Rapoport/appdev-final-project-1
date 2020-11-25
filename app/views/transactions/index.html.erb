@@ -27,19 +27,19 @@
 
       <div>
         <label for="steel_offered_box"> Steel offered </label>
-        <input type="range" class="custom-range" min="0" max="<%=@the_player.steel_amount%>" id="steel_offered_box" name="query_steel_offered" oninput="this.nextElementSibling.value = this.value">
+        <input type="range" class="custom-range" min="0" max="<%=@the_player.steel_amount%>" id="steel_offered_box" name="query_steel_offered" value="0" oninput="this.nextElementSibling.value = this.value">
         <output></output>
       </div>
 
       <div>
         <label for="clay_offered_box"> Clay offered </label>
-        <input type="range" class="custom-range" min="0" max="<%=@the_player.clay_amount%>" id="clay_offered_box" name="query_clay_offered" oninput="this.nextElementSibling.value = this.value">
+        <input type="range" class="custom-range" min="0" max="<%=@the_player.clay_amount%>" id="clay_offered_box" name="query_clay_offered" value="0" oninput="this.nextElementSibling.value = this.value">
         <output></output>
       </div>
 
       <div>
         <label for="grain_offered_box"> Grain offered </label>
-        <input type="range" class="custom-range" min="0" max="<%=@the_player.grain_amount%>" id="grain_offered_box" name="query_grain_offered" oninput="this.nextElementSibling.value = this.value">
+        <input type="range" class="custom-range" min="0" max="<%=@the_player.grain_amount%>" id="grain_offered_box" name="query_grain_offered" value="0" oninput="this.nextElementSibling.value = this.value">
         <output></output>
       </div>
 
@@ -48,7 +48,7 @@
           Steel requested
         </label>
 
-        <input type="text" id="steel_requested_box" name="query_steel_requested">
+        <input type="text" id="steel_requested_box" value="0" name="query_steel_requested">
       </div>
 
       <div>
@@ -56,7 +56,7 @@
           Clay requested
         </label>
 
-        <input type="text" id="clay_requested_box" name="query_clay_requested">
+        <input type="text" id="clay_requested_box" value="0" name="query_clay_requested">
       </div>
 
       <div>
@@ -64,7 +64,7 @@
           Grain requested
         </label>
 
-        <input type="text" id="grain_requested_box" name="query_grain_requested">
+        <input type="text" id="grain_requested_box" value="0" name="query_grain_requested">
       </div>
 
       <div>
@@ -173,13 +173,13 @@
         </td>
 
         <td>
-          <a href="/transactions/<%= a_transaction.id %>">
+          <a href="/accept_transaction/<%= a_transaction.id %>">
             Accept
           </a>
         </td>
 
         <td>
-          <a href="/transactions/<%= a_transaction.id %>">
+          <a href="/reject_transaction/<%= a_transaction.id %>">
             Reject
           </a>
         </td>
@@ -287,7 +287,7 @@
         </td>
 
         <td>
-          <a href="/transactions/<%= a_transaction.id %>">
+          <a href="/cancel_transaction/<%= a_transaction.id %>">
             Cancel
           </a>
         </td>
