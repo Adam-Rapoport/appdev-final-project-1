@@ -1,11 +1,14 @@
 class TransactionsController < ApplicationController
   def index
-    matching_transactions = Transaction.all
+    
+    incoming_transactions = Transaction.where({ :recipient_id => session[:player_id], :status => "Pending" })
+    @list_incoming_transactions = incoming_transactions.order({ :created_at => :desc })
 
-    @list_of_transactions = matching_transactions.order({ :created_at => :desc })
+    sent_transactions = Transaction.where({ :sender_id => session[:player_id], :status => "Pending" })
+    @list_sent_transactions = sent_transactions.order({ :created_at => :desc })
 
     @the_player = Player.where({ :id => session[:player_id] }).first
-    @players = Player.all.order({:id => :asc})
+    @players = Player.where.not({ :id  => session[:player_id] }).order({:id => :asc})
     render({ :template => "transactions/index.html.erb" })
   end
 
@@ -21,7 +24,7 @@ class TransactionsController < ApplicationController
 
   def create
     the_transaction = Transaction.new
-    the_transaction.sender_id = params.fetch("query_sender_id")
+    the_transaction.sender_id = session[:player_id]
     the_transaction.recipient_id = params.fetch("query_recipient_id")
     the_transaction.steel_offered = params.fetch("query_steel_offered")
     the_transaction.clay_offered = params.fetch("query_clay_offered")
@@ -29,14 +32,14 @@ class TransactionsController < ApplicationController
     the_transaction.steel_requested = params.fetch("query_steel_requested")
     the_transaction.clay_requested = params.fetch("query_clay_requested")
     the_transaction.grain_requested = params.fetch("query_grain_requested")
-    the_transaction.status = params.fetch("query_status")
+    the_transaction.status = "Pending"
     the_transaction.greetings = params.fetch("query_greetings")
 
     if the_transaction.valid?
       the_transaction.save
-      redirect_to("/transactions", { :notice => "Transaction created successfully." })
+      redirect_to("/transactions", { :notice => "Request sent successfully!" })
     else
-      redirect_to("/transactions", { :notice => "Transaction failed to create successfully." })
+      redirect_to("/transactions", { :notice => "Request failed to send" })
     end
   end
 

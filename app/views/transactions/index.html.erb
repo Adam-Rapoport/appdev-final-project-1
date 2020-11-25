@@ -83,17 +83,121 @@
 </div>
 
 <hr>
+
+<h3> Pending incoming trade requests </h3>
+
 <div>
   <div>
-    <table>
+    <table class="table">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Sender
         </th>
+
+        <th>
+          Steel offered
+        </th>
+
+        <th>
+          Clay offered
+        </th>
+
+        <th>
+          Grain offered
+        </th>
+
+        <th>
+          Steel requested
+        </th>
+
+        <th>
+          Clay requested
+        </th>
+
+        <th>
+          Grain requested
+        </th>
+
+        <th>
+          Greetings
+        </th>
+
+        <th>
+          Sent at
+        </th>
+
+        <th>
+        </th>
+        <th>
+        </th>
+      </tr>
+
+      <% @list_incoming_transactions.each do |a_transaction| %>
+      <tr>
+
+        <td>
+          <%= a_transaction.sender.name %>
+        </td>
+
+        <td>
+          <%= a_transaction.steel_offered %>
+        </td>
+
+        <td>
+          <%= a_transaction.clay_offered %>
+        </td>
+
+        <td>
+          <%= a_transaction.grain_offered %>
+        </td>
+
+        <td>
+          <%= a_transaction.steel_requested %>
+        </td>
+
+        <td>
+          <%= a_transaction.clay_requested %>
+        </td>
+
+        <td>
+          <%= a_transaction.grain_requested %>
+        </td>
+
+        <td>
+          <%= a_transaction.greetings %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_transaction.created_at) %> ago
+        </td>
+
+        <td>
+          <a href="/transactions/<%= a_transaction.id %>">
+            Accept
+          </a>
+        </td>
+
+        <td>
+          <a href="/transactions/<%= a_transaction.id %>">
+            Reject
+          </a>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<h3> Sent trade requests </h3>
+
+<div>
+  <div>
+    <table class="table">
+      <tr>
 
         <th>
           Recipient
@@ -124,37 +228,26 @@
         </th>
 
         <th>
-          Status
-        </th>
-
-        <th>
           Greetings
         </th>
 
         <th>
-          Created at
+          Sent at
         </th>
 
         <th>
-          Updated at
+          Status
         </th>
 
         <th>
         </th>
       </tr>
 
-      <% @list_of_transactions.each do |a_transaction| %>
+      <% @list_sent_transactions.each do |a_transaction| %>
       <tr>
-        <td>
-          <%= a_transaction.id %>
-        </td>
 
         <td>
-          <%= a_transaction.sender_id %>
-        </td>
-
-        <td>
-          <%= a_transaction.recipient_id %>
+          <%= a_transaction.recipient.name %>
         </td>
 
         <td>
@@ -182,29 +275,27 @@
         </td>
 
         <td>
-          <%= a_transaction.status %>
-        </td>
-
-        <td>
           <%= a_transaction.greetings %>
         </td>
 
         <td>
           <%= time_ago_in_words(a_transaction.created_at) %> ago
         </td>
+        
         <td>
-          <%= time_ago_in_words(a_transaction.updated_at) %> ago
+          <%= a_transaction.status %>
         </td>
 
         <td>
           <a href="/transactions/<%= a_transaction.id %>">
-            Show details
+            Cancel
           </a>
         </td>
+
+
       </tr>
       <% end %>
     </table>
   </div>
 </div>
 
-<hr>
