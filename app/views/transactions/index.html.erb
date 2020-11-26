@@ -287,9 +287,11 @@
         </td>
 
         <td>
+        <% if a_transaction.status != "Completed"%>
           <a href="/cancel_transaction/<%= a_transaction.id %>">
             Cancel
           </a>
+          <%end%>
         </td>
 
 
