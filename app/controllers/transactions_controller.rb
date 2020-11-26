@@ -68,53 +68,53 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def update
-    the_id = params.fetch("path_id")
-    the_transaction = Transaction.where({ :id => the_id }).at(0)
+  # def update
+  #   the_id = params.fetch("path_id")
+  #   the_transaction = Transaction.where({ :id => the_id }).at(0)
 
-    the_transaction.sender_id = params.fetch("query_sender_id")
-    the_transaction.recipient_id = params.fetch("query_recipient_id")
+  #   the_transaction.sender_id = params.fetch("query_sender_id")
+  #   the_transaction.recipient_id = params.fetch("query_recipient_id")
 
-    if the_transaction.steel_offered != nil
-    the_transaction.steel_offered = params.fetch("query_steel_offered")
-    else the_transaction.steel_offered = "0"
-    end
+  #   if the_transaction.steel_offered != nil
+  #   the_transaction.steel_offered = params.fetch("query_steel_offered")
+  #   else the_transaction.steel_offered = "0"
+  #   end
 
-    if the_transaction.clay_offered != nil
-    the_transaction.clay_offered = params.fetch("query_clay_offered")
-    else the_transaction.clay_offered = "0"
-    end
+  #   if the_transaction.clay_offered != nil
+  #   the_transaction.clay_offered = params.fetch("query_clay_offered")
+  #   else the_transaction.clay_offered = "0"
+  #   end
 
-    if the_transaction.grain_offered != nil
-    the_transaction.grain_offered = params.fetch("query_grain_offered")
-    else the_transaction.grain_offered = "0"
-    end
+  #   if the_transaction.grain_offered != nil
+  #   the_transaction.grain_offered = params.fetch("query_grain_offered")
+  #   else the_transaction.grain_offered = "0"
+  #   end
 
-    if the_transaction.steel_requested != nil
-    the_transaction.steel_requested = params.fetch("query_steel_requested")
-    else the_transaction.steel_requested = "0"
-    end 
+  #   if the_transaction.steel_requested != nil
+  #   the_transaction.steel_requested = params.fetch("query_steel_requested")
+  #   else the_transaction.steel_requested = "0"
+  #   end 
     
-    if the_transaction.clay_requested != nil
-    the_transaction.clay_requested = params.fetch("query_clay_requested")
-    else the_transaction.clay_requested = "0"
-    end 
+  #   if the_transaction.clay_requested != nil
+  #   the_transaction.clay_requested = params.fetch("query_clay_requested")
+  #   else the_transaction.clay_requested = "0"
+  #   end 
 
-    if the_transaction.grain_requested != nil
-    the_transaction.grain_requested = params.fetch("query_grain_requested")
-    else the_transaction.grain_requested = "0"
-    end 
+  #   if the_transaction.grain_requested != nil
+  #   the_transaction.grain_requested = params.fetch("query_grain_requested")
+  #   else the_transaction.grain_requested = "0"
+  #   end 
 
-    the_transaction.status = params.fetch("query_status")
-    the_transaction.greetings = params.fetch("query_greetings")
+  #   the_transaction.status = params.fetch("query_status")
+  #   the_transaction.greetings = params.fetch("query_greetings")
 
-    if the_transaction.valid?
-      the_transaction.save
-      redirect_to("/transactions/#{the_transaction.id}", { :notice => "Transaction updated successfully."} )
-    else
-      redirect_to("/transactions/#{the_transaction.id}", { :alert => "Transaction failed to update successfully." })
-    end
-  end
+  #   if the_transaction.valid?
+  #     the_transaction.save
+  #     redirect_to("/transactions/#{the_transaction.id}", { :notice => "Transaction updated successfully."} )
+  #   else
+  #     redirect_to("/transactions/#{the_transaction.id}", { :alert => "Transaction failed to update successfully." })
+  #   end
+  # end
 
   # def destroy
   #   the_id = params.fetch("path_id")
