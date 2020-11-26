@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def winners
+    @all_players = Player.all.order({ :points => :desc })
+    render({ :template => "home/leaderboard.html.erb" })
+  end
 end

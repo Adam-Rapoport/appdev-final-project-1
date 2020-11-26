@@ -91,6 +91,8 @@ Rails.application.routes.draw do
   # SIGN OUT        
   get("/player_sign_out", { :controller => "player_authentication", :action => "destroy_cookies" })
              
+  # Leaderboard
+  get("/leaderboard", { :controller => "application", :action => "winners" })
   #------------------------------
 
 end
