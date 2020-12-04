@@ -10,33 +10,37 @@ Rails.application.routes.draw do
   # READ
   get("/transactions", { :controller => "transactions", :action => "index" })
   
-  get("/transactions/:path_id", { :controller => "transactions", :action => "show" })
+  # get("/transactions/:path_id", { :controller => "transactions", :action => "show" })
   
   # UPDATE
   
-  post("/modify_transaction/:path_id", { :controller => "transactions", :action => "update" })
+  # post("/modify_transaction/:path_id", { :controller => "transactions", :action => "update" })
   
   # DELETE
-  get("/delete_transaction/:path_id", { :controller => "transactions", :action => "destroy" })
+  # get("/delete_transaction/:path_id", { :controller => "transactions", :action => "destroy" })
+
+  get("/accept_transaction/:path_id", { :controller => "transactions", :action => "accept" })
+  get("/reject_transaction/:path_id", { :controller => "transactions", :action => "reject" })
+  get("/cancel_transaction/:path_id", { :controller => "transactions", :action => "cancel" })
 
   #------------------------------
 
   # Routes for the Building instruction resource:
 
   # CREATE
-  post("/insert_building_instruction", { :controller => "building_instructions", :action => "create" })
+  # post("/insert_building_instruction", { :controller => "building_instructions", :action => "create" })
           
   # READ
-  get("/building_instructions", { :controller => "building_instructions", :action => "index" })
+  # get("/building_instructions", { :controller => "building_instructions", :action => "index" })
   
-  get("/building_instructions/:path_id", { :controller => "building_instructions", :action => "show" })
+  # get("/building_instructions/:path_id", { :controller => "building_instructions", :action => "show" })
   
-  # UPDATE
+  # # UPDATE
   
-  post("/modify_building_instruction/:path_id", { :controller => "building_instructions", :action => "update" })
+  # post("/modify_building_instruction/:path_id", { :controller => "building_instructions", :action => "update" })
   
-  # DELETE
-  get("/delete_building_instruction/:path_id", { :controller => "building_instructions", :action => "destroy" })
+  # # DELETE
+  # get("/delete_building_instruction/:path_id", { :controller => "building_instructions", :action => "destroy" })
 
   #------------------------------
 
@@ -46,16 +50,19 @@ Rails.application.routes.draw do
   post("/insert_building", { :controller => "buildings", :action => "create" })
           
   # READ
+
+  get("/", { :controller => "buildings", :action => "home" })
+
   get("/buildings", { :controller => "buildings", :action => "index" })
   
-  get("/buildings/:path_id", { :controller => "buildings", :action => "show" })
+  # get("/buildings/:path_id", { :controller => "buildings", :action => "show" })
   
   # UPDATE
   
-  post("/modify_building/:path_id", { :controller => "buildings", :action => "update" })
+  # post("/modify_building/:path_id", { :controller => "buildings", :action => "update" })
   
   # DELETE
-  get("/delete_building/:path_id", { :controller => "buildings", :action => "destroy" })
+  # get("/delete_building/:path_id", { :controller => "buildings", :action => "destroy" })
 
   #------------------------------
 
@@ -67,12 +74,12 @@ Rails.application.routes.draw do
   post("/insert_player", { :controller => "player_authentication", :action => "create"  })
       
   # EDIT PROFILE FORM        
-  get("/edit_player_profile", { :controller => "player_authentication", :action => "edit_profile_form" })       
+  # get("/edit_player_profile", { :controller => "player_authentication", :action => "edit_profile_form" })       
   # UPDATE RECORD
-  post("/modify_player", { :controller => "player_authentication", :action => "update" })
+  # post("/modify_player", { :controller => "player_authentication", :action => "update" })
   
-  # DELETE RECORD
-  get("/cancel_player_account", { :controller => "player_authentication", :action => "destroy" })
+  # # DELETE RECORD
+  # get("/cancel_player_account", { :controller => "player_authentication", :action => "destroy" })
 
   # ------------------------------
 
@@ -84,6 +91,8 @@ Rails.application.routes.draw do
   # SIGN OUT        
   get("/player_sign_out", { :controller => "player_authentication", :action => "destroy_cookies" })
              
+  # Leaderboard
+  get("/leaderboard", { :controller => "application", :action => "winners" })
   #------------------------------
 
 end

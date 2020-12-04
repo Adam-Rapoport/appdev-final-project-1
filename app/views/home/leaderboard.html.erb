@@ -1,0 +1,56 @@
+<div>
+  <div>
+    <h1>
+      Here be the champions of Diplomacy!
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <table class="table">
+      <tr>
+
+        <th>
+          Rank
+        </th>
+
+        <th>
+          Player name
+        </th>
+
+        <th>
+          Kingdom name
+        </th>
+
+        <th>
+          Points
+        </th>
+
+      </tr>
+      <%i=0%>
+<% @all_players.each do |a_player| %>
+<%i=i+1%>
+      <tr>
+
+        <td>
+          <%=i%>
+        </td>
+
+        <td>
+          <%= a_player.name %>
+        </td>
+
+        <td>
+          <%= a_player.kingdom %> 
+        </td>
+        <td>
+          <%= a_player.points %> points!
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

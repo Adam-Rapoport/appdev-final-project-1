@@ -14,7 +14,8 @@
 #  steel_drop_prob    :float
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#
+#  image
+
 class BuildingInstruction < ApplicationRecord
   has_many(:buildings, { :class_name => "Building", :foreign_key => "building_type_id", :dependent => :destroy })
 end

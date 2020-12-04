@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+     <img src="https://cdn.onlinewebfonts.com/svg/img_571041.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      Diplomacy!
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible-nav-links" aria-controls="collapsible-nav-links" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsible-nav-links">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Where to?
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a href="/buildings" class="dropdown-item">
+              Expand your kingdom
+            </a>
+            <a href="/transactions" class="dropdown-item">
+              Trade resources
+            </a>
+            <a href="/leaderboard" class="dropdown-item">
+              View leaderboard
+            </a>
+            <a href="/player_sign_out" class="dropdown-item">
+              Sign out
+            </a>
+          </div>
+        </li>
+      </ul>
+
+    </div> <!-- .navbar-collapse -->
+<%@p = Player.where({ :id => session[:player_id] }).first%>
+
+<% if @p != nil %>
+<button type="button" class="btn btn-primary">
+  Steel <span class="badge badge-light"> <%=@p.steel_amount%>   </span>
+</button>
+ -
+<button type="button" class="btn btn-primary" > 
+  Clay <span class="badge badge-light"><%=@p.clay_amount%> </span>
+</button>
+-
+<button type="button" class="btn btn-primary" > 
+  Grain <span class="badge badge-light"><%=@p.grain_amount%> </span>
+</button>
+-
+<button type="button" class="btn btn-primary" > 
+  Points <span class="badge badge-light"> <%=@p.points%> </span>
+</button>
+-
+<%end%>
+<!-- Button trigger modal -->
+
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#staticBackdrop">
+  Instructions
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Game Instructions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Use resources (steel, grain and clay) to build structures
+        <hr>
+        Automatically collect tax daily from kingdom buildings to get more resources
+        <hr>
+        Trade with other players to obtain missing resources
+        <hr>
+        Earn points from kingdom buildings to become the leading ruler!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div> <!-- .container -->
+</nav>

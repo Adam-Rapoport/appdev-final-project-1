@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all buildings
+      Welcome to your kingdom <%=@player.name%>!
     </h1>
   </div>
 </div>
@@ -11,40 +11,44 @@
 <div>
   <div>
     <h2>
-      Add a new building
+      Expand your kingdom, build something:
     </h2>
 
     <form action="/insert_building" method="post">
-      <div>
-        <label for="building_type_id_box">
-          Building type
-        </label>
-
-        <input type="text" id="building_type_id_box" name="query_building_type_id">
-      </div>
-
-      <div>
-        <label for="builder_id_box">
-          Builder
-        </label>
-
-        <input type="text" id="builder_id_box" name="query_builder_id">
-      </div>
-
+      <select name="query_building_type_id" id="building_type_id_box">
+        <option selected>Select building</option>
+        <% @building_types.each do |building_type|%>
+        <option value="<%=building_type.id%>"> Build a <%=building_type.building_type_name%> 
+        for <%=building_type.clay_cost%> clay, <%=building_type.grain_cost%> grain and <%=building_type.steel_cost%> steel 
+        </option>
+        <% end %>
+      </select>
       <button>
-        Create building
+        Build!
       </button>
     </form>
+
+
+
+
   </div>
 </div>
 
 <hr>
 <div>
   <div>
-    <table>
+    <h3>
+      The mighty kingdom of <%=@player.kingdom%>
+    </h3>
+  </div>
+</div>
+<div>
+  <div>
+    <table class="table">
       <tr>
+
         <th>
-          ID
+          
         </th>
 
         <th>
@@ -52,46 +56,31 @@
         </th>
 
         <th>
-          Builder
+          Built at
         </th>
 
         <th>
-          Created at
+          Points value
         </th>
 
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
       </tr>
 
       <% @list_of_buildings.each do |a_building| %>
       <tr>
+
         <td>
-          <%= a_building.id %>
+          <img src="<%=a_building.building_type.image%>" width="50" height="50" class="d-inline-block align-top" alt="" loading="lazy">
         </td>
 
         <td>
-          <%= a_building.building_type_id %>
-        </td>
-
-        <td>
-          <%= a_building.builder_id %>
+          <%= a_building.building_type.building_type_name.capitalize %>
         </td>
 
         <td>
           <%= time_ago_in_words(a_building.created_at) %> ago
         </td>
         <td>
-          <%= time_ago_in_words(a_building.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/buildings/<%= a_building.id %>">
-            Show details
-          </a>
+          <%= a_building.building_type.points_value %> points!
         </td>
       </tr>
       <% end %>
